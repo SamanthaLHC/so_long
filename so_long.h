@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/18 18:45:47 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/18 23:15:55 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
-#define ItoX(i, line_size) (i % line_size)
+#define ITOX(i, line_size) (i % line_size)
 #define ITOY(i, line_size) (i / line_size)
 #define IDX(i, line_size) (x + (line_size * y))
 
@@ -34,11 +34,16 @@ typedef struct s_setup
     int nbr_lines;
     int w_win;
     int h_win;
-    char **save_in_tab;
+    char *save_in_tab;
 } t_setup;
 
 typedef struct s_img
 {
+    void    *img_wall;
+    void    *img_ground;
+    void    *img_char_face1;
+    t_setup setup;
+    
 
 } t_img;
 
@@ -49,11 +54,13 @@ int ft_strchr(char *s, int c);
 size_t  ft_strlesn(char *str);
 int count_lines(char *path, t_setup *setup);
 char *copy_data_from_maps_to_tab(char *path, t_setup *setup);
-int get_size_win(t_setup *setup);
+void get_size_win(t_setup *setup);
 int key_close(int keycode, t_setup *setup);
 int mouse_close (t_setup *setup);
-int handle_win(t_setup *setup);
+void handle_win(t_setup *setup);
 int starting(t_setup *setup);
+void load_img(t_setup *setup, t_img *img);
+void put_img_in_win(t_setup *setup, t_img *img);
 
 
 #endif
