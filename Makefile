@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
+#    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 14:13:22 by sle-huec          #+#    #+#              #
-#    Updated: 2022/03/17 16:11:59 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/03/18 18:51:43 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 SRCS = so_long.c \
-		utils.c \
+		window.c \
 		maps.c \
 		get_next_line.c \
 		get_next_line_utils.c
