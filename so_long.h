@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/19 22:40:08 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/23 12:04:08 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,13 @@ typedef struct s_setup
     int w_win;
     int h_win;
     char *save_in_tab;
-} t_setup;
-
-typedef struct s_img
-{
     void    *img_wall;
     void    *img_ground;
     void    *img_char_face1;
     void    *img_coll;
     void    *img_exit;
+} t_setup;
 
-    t_setup setup;
-    
-
-} t_img;
 
 char    *get_next_line(int fd);
 char    *ft_substr(char *s, int start, int len);
@@ -60,10 +53,13 @@ char *copy_data_from_maps_to_tab(char *path, t_setup *setup);
 void get_size_win(t_setup *setup);
 int key_close(int keycode, t_setup *setup);
 int mouse_close (t_setup *setup);
-void handle_win(t_setup *setup, t_img *img);
+void handle_win(t_setup *setup);
 int starting(t_setup *setup);
-void load_img(t_setup *setup, t_img *img);
-void put_img_in_win(t_setup *setup, t_img *img);
+void load_img(t_setup *setup);
+void put_img_in_win(t_setup *setup);
+int move_char(int keycode, t_setup *setup);
+void load_img(t_setup *setup);
+
 
 
 #endif

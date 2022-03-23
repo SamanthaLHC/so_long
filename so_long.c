@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/19 11:43:46 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/23 10:15:10 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int starting(t_setup *setup)
 int main(int ac, char **av)
 {
 	t_setup setup;
-	t_img	img;
 	
 	if (ac == 1)
 	{
@@ -35,7 +34,7 @@ int main(int ac, char **av)
 		starting(&setup);
 		count_lines(av[1], &setup);
 		copy_data_from_maps_to_tab(av[1], &setup);
-		handle_win(&setup, &img);
+		handle_win(&setup);
 		free(setup.save_in_tab);
 		free(setup.mlx);
 
