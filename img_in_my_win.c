@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 20:54:06 by sam               #+#    #+#             */
-/*   Updated: 2022/03/23 10:34:38 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/23 15:18:01 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void put_img_in_win(t_setup *setup)
     load_img(setup);
     while (setup->save_in_tab[i])
     {
-        printf("%c: %i, %i\n", setup->save_in_tab[i],  ITOX(i, setup->line_size), ITOY(i, setup->line_size));
+        //printf("%c: %i, %i\n", setup->save_in_tab[i],  ITOX(i, setup->line_size), ITOY(i, setup->line_size));
         if (setup->save_in_tab[i] == '1')
             mlx_put_image_to_window(setup->mlx, setup->win, setup->img_wall, 
                 ITOX(i, setup->line_size) * 48, ITOY(i, setup->line_size) * 48);
