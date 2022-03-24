@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/24 16:01:23 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 23:43:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,43 +28,52 @@
 
 typedef struct s_setup
 {
-    void *mlx;
-    void *win;
-    int line_size;
-    int nbr_lines;
-    int w_win;
-    int h_win;
-    char *save_in_tab;
+    void    *mlx;
+    void    *win;
+    int     line_size;
+    int     nbr_lines;
+    int     w_win;
+    int     h_win;
+    char    *save_in_tab;
     void    *img_wall;
+   // void    *img_cake;
+    void    *img_left[4];
+    void    *img_right[4];
+    void    *img_face[4];
+    void    *img_back[4];
+    int     idx_anim;
     void    *img_ground;
-    void    *img_char_face1;
     void    *img_coll;
     void    *img_exit;
-    int count_coll;
-    int total_coll;
-    int count_step;
-
+    int     count_coll;
+    int     total_coll;
+    int     count_step;
+    int     direction;
 } t_setup;
 
 
 char    *get_next_line(int fd);
 char    *ft_substr(char *s, int start, int len);
 char    *ft_strcpy(char *dst, char *src);
-int ft_strchr(char *s, int c);
+int     ft_strchr(char *s, int c);
 size_t  ft_strlesn(char *str);
-int count_lines(char *path, t_setup *setup);
-char *copy_data_from_maps_to_tab(char *path, t_setup *setup);
-void get_size_win(t_setup *setup);
-int key_close(int keycode, t_setup *setup);
-int mouse_close (t_setup *setup);
-void handle_win(t_setup *setup);
-int starting(t_setup *setup);
-void load_img(t_setup *setup);
-void put_img_in_win(t_setup *setup);
-int move_char(int keycode, t_setup *setup);
-void load_img(t_setup *setup);
-void total_collect(t_setup *setup);
-//int count_step(int keycode);
+int     count_lines(char *path, t_setup *setup);
+char    *copy_data_from_maps_to_tab(char *path, t_setup *setup);
+void    get_size_win(t_setup *setup);
+int     key_close(int keycode, t_setup *setup);
+int     mouse_close (t_setup *setup);
+void    handle_win(t_setup *setup);
+int     starting(t_setup *setup);
+void    load_img(t_setup *setup);
+void    put_img_in_win(t_setup *setup);
+int     move_char(int keycode, t_setup *setup);
+void    load_img(t_setup *setup);
+void    total_collect(t_setup *setup);
+void    anim_up(int i, t_setup *setup);
+void    anim_down(int i, t_setup *setup);
+void    anim_left(int i, t_setup *setup);
+void    anim_right(int i, t_setup *setup);
+void    anim_char(int i, t_setup *setup);
 
 #endif
 

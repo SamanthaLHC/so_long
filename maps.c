@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:21:14 by sam               #+#    #+#             */
-/*   Updated: 2022/03/23 09:47:00 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 22:48:33 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 /*
 int check_maps()
 {
-    // is .ber?
+    // is .ber
     // len egales?
     // encadree par des 1 ? 
     //return 1 si toutes conditions ok 
-    //check size max 
+    //check size max
+    // val de retour de open
 }
 */
 int count_lines(char *path, t_setup *setup)
