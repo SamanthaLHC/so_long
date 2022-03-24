@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/23 23:48:34 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 14:51:09 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int starting(t_setup *setup)
 {
 	setup->count_coll = 0;
+	//setup->total_coll = 0;
 	setup->mlx = mlx_init();
 	if (!setup->mlx)
 		return (-1);
@@ -35,11 +36,8 @@ int main(int ac, char **av)
 		starting(&setup);
 		count_lines(av[1], &setup);
 		copy_data_from_maps_to_tab(av[1], &setup);
+		total_collect(&setup);
 		handle_win(&setup);
-		//
-		printf("collectibles = %d\n", setup.count_coll);
-		//
-
 		free(setup.save_in_tab);
 		free(setup.mlx);
 

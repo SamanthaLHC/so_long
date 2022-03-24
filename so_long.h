@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/23 23:48:13 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 12:53:20 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void put_img_in_win(t_setup *setup);
 int move_char(int keycode, t_setup *setup);
 void load_img(t_setup *setup);
 void total_collect(t_setup *setup);
-
 
 #endif
 
