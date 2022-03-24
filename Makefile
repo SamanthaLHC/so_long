@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 14:13:22 by sle-huec          #+#    #+#              #
-#    Updated: 2022/03/24 14:52:39 by sam              ###   ########.fr        #
+#    Updated: 2022/03/24 16:01:17 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = so_long.c \
 		get_next_line.c \
 		get_next_line_utils.c \
 		move_my_char.c \
-		count_coll_and_step.c
+		count_coll.c
 		
 OBJ = $(SRCS:%.c=%.o)
 
