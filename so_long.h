@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/24 12:53:20 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 15:45:42 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_setup
     void    *img_exit;
     int count_coll;
     int total_coll;
+    int count_step;
+
 } t_setup;
 
 
@@ -62,6 +64,7 @@ void put_img_in_win(t_setup *setup);
 int move_char(int keycode, t_setup *setup);
 void load_img(t_setup *setup);
 void total_collect(t_setup *setup);
+//int count_step(int keycode);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/24 14:51:09 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 15:52:39 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int starting(t_setup *setup)
 {
 	setup->count_coll = 0;
-	//setup->total_coll = 0;
+	setup->count_step = 0;
 	setup->mlx = mlx_init();
 	if (!setup->mlx)
 		return (-1);

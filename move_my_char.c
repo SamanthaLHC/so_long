@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:16:25 by sam               #+#    #+#             */
-/*   Updated: 2022/03/24 14:53:04 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/24 15:53:30 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,24 @@ int move_char(int keycode, t_setup *setup)
     
     m = ft_strchr(setup->save_in_tab, 'P');
     if (keycode == 119)
+    {
         move_up(&m, setup);
+        printf("%d\n",++setup->count_step);
+    }
     else if (keycode == 97)
+    {
         move_left(&m, setup);
+        printf("%d\n",++setup->count_step);
+    }
     else if (keycode == 115)
+    {
         move_down(&m, setup);
+        printf("%d\n",++setup->count_step);
+    }
     else if (keycode == 100)
+    {
         move_right(&m, setup);
+        printf("%d\n",++setup->count_step);
+    }
     return (0);
 }
