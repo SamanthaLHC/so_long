@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:16:25 by sam               #+#    #+#             */
-/*   Updated: 2022/03/25 00:19:53 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 11:41:23 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@ void move_up(int *m, t_setup *setup)
     if (setup->direction != 119)
         setup->idx_anim = 0;
     setup->direction = 119;
-    if (setup->total_coll == setup->count_coll && 
+    if (setup->save_in_tab[*m - setup->line_size] =='F')
+    {
+        printf("YOU LOSE !");
+        mlx_loop_end(setup->mlx);
+    }
+    else if (setup->total_coll == setup->count_coll && 
             setup->save_in_tab[*m - setup->line_size] =='E')
     {
             printf("YOU WIN !");
             mlx_loop_end(setup->mlx);
     }
-    if (setup->save_in_tab[*m - setup->line_size] =='0' ||
+    else if (setup->save_in_tab[*m - setup->line_size] =='0' ||
             setup->save_in_tab[*m - setup->line_size] =='C')
     {
         if (setup->save_in_tab[*m - setup->line_size] =='C')
@@ -41,13 +46,18 @@ void move_down(int *m, t_setup *setup)
     if (setup->direction != 115)
         setup->idx_anim = 0;
     setup->direction = 115;
-    if (setup->total_coll == setup->count_coll && 
+    if (setup->save_in_tab[*m + setup->line_size] =='F')
+    {
+        printf("YOU LOSE !");
+        mlx_loop_end(setup->mlx);
+    }
+    else if (setup->total_coll == setup->count_coll && 
             setup->save_in_tab[*m + setup->line_size] =='E')
     {
         printf("YOU WIN !");
         mlx_loop_end(setup->mlx);
     }
-    if (setup->save_in_tab[*m + setup->line_size] =='0' ||
+    else if (setup->save_in_tab[*m + setup->line_size] =='0' ||
         setup->save_in_tab[*m + setup->line_size] =='C')
     {
         if (setup->save_in_tab[*m + setup->line_size] =='C')
@@ -70,7 +80,12 @@ void move_left(int *m, t_setup *setup)
         printf("YOU WIN !");
         mlx_loop_end(setup->mlx);
     }
-    if (setup->save_in_tab[*m - 1] =='0' ||
+    else if (setup->save_in_tab[*m - 1] =='F')
+    {
+        printf("YOU LOSE !");
+        mlx_loop_end(setup->mlx);
+    }
+    else if (setup->save_in_tab[*m - 1] =='0' ||
         setup->save_in_tab[*m - 1] =='C')
     {
         if (setup->save_in_tab[*m - 1] =='C')
@@ -93,7 +108,12 @@ void move_right(int *m, t_setup *setup)
         printf("YOU WIN !");
         mlx_loop_end(setup->mlx);
     }
-    if (setup->save_in_tab[*m + 1] =='0' ||
+    else if (setup->save_in_tab[*m + 1] =='F')
+    {
+        printf("YOU LOSE !");
+        mlx_loop_end(setup->mlx);
+    }
+    else if (setup->save_in_tab[*m + 1] =='0' ||
         setup->save_in_tab[*m + 1] =='C')
     {
         if (setup->save_in_tab[*m + 1] =='C')

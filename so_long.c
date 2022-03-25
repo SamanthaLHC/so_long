@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/25 00:10:00 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 12:08:13 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int starting(t_setup *setup)
 	setup->img_face[1] = NULL;
 	setup->img_face[2] = NULL;
 	setup->img_face[3] = NULL;
-//	setup->img_cake = NULL;
+	setup->img_cake = NULL;
 	setup->count_coll = 0;
 	setup->count_step = 0;
+	setup->idx_anim = 0;
 	setup->direction = 115;
 	setup->mlx = mlx_init();
 	if (!setup->mlx)

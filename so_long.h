@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/24 23:43:48 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 11:18:54 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_setup
     int     h_win;
     char    *save_in_tab;
     void    *img_wall;
-   // void    *img_cake;
+    void    *img_cake;
     void    *img_left[4];
     void    *img_right[4];
     void    *img_face[4];

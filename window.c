@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:31:33 by sam               #+#    #+#             */
-/*   Updated: 2022/03/24 23:43:52 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 12:34:57 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void get_size_win(t_setup *setup)
     setup->w_win = setup->line_size * 48;
     setup->h_win = setup->nbr_lines * 48;
 	setup->win = mlx_new_window(setup->mlx, setup->w_win, setup->h_win,
-    "thanks for all the fish, music band");
+    "keep calm, play music.");
 }
 
 int key_close(int keycode, t_setup *setup)
