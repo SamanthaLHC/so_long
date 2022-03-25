@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 14:13:22 by sle-huec          #+#    #+#              #
-#    Updated: 2022/03/24 23:09:49 by sam              ###   ########.fr        #
+#    Updated: 2022/03/25 13:40:41 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ SRCS = so_long.c \
 		get_next_line.c \
 		get_next_line_utils.c \
 		move_my_char.c \
-		coll.c \
-		anim_my_char.c
+		utils.c \
+		anim_my_char.c \
+		ft_printf.c
 		
 OBJ = $(SRCS:%.c=%.o)
 

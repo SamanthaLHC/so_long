@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/25 11:18:54 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 14:23:02 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #define ITOX(i, line_size) (i % line_size)
 #define ITOY(i, line_size) (i / line_size)
@@ -74,6 +75,12 @@ void    anim_down(int i, t_setup *setup);
 void    anim_left(int i, t_setup *setup);
 void    anim_right(int i, t_setup *setup);
 void    anim_char(int i, t_setup *setup);
+int     ft_putnbr(int n);
+char    *ft_putstr(char *s);
+int     ft_putchar(char c);
+int	    ft_put_smth(va_list arg, const char *format);
+int	    ft_printf(const char *format, ...);
+void    destroy_ereything(t_setup *setup);
 
 #endif
 

@@ -6,15 +6,14 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/25 12:08:13 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 14:24:55 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int starting(t_setup *setup)
+void init_var(t_setup *setup)
 {
-	//memset sur la struct pour init
 	setup->img_wall = NULL;
 	setup->img_ground = NULL;
 	setup->img_coll = NULL;
@@ -40,23 +39,52 @@ int starting(t_setup *setup)
 	setup->count_step = 0;
 	setup->idx_anim = 0;
 	setup->direction = 115;
+}
+
+int starting(t_setup *setup)
+{
 	setup->mlx = mlx_init();
 	if (!setup->mlx)
 		return (-1);
 	return (0);
 }
 
+void destroy_ereything(t_setup *setup)
+{
+	mlx_destroy_image(setup->mlx,setup->img_wall);
+	mlx_destroy_image(setup->mlx,setup->img_ground);
+	mlx_destroy_image(setup->mlx,setup->img_cake);
+	mlx_destroy_image(setup->mlx,setup->img_coll);
+	mlx_destroy_image(setup->mlx,setup->img_exit);
+	mlx_destroy_image(setup->mlx,setup->img_left[0]);
+	mlx_destroy_image(setup->mlx,setup->img_left[1]);
+	mlx_destroy_image(setup->mlx,setup->img_left[2]);
+	mlx_destroy_image(setup->mlx,setup->img_right[0]);
+	mlx_destroy_image(setup->mlx,setup->img_right[1]);
+	mlx_destroy_image(setup->mlx,setup->img_right[2]);
+	mlx_destroy_image(setup->mlx,setup->img_face[0]);
+	mlx_destroy_image(setup->mlx,setup->img_face[1]);
+	mlx_destroy_image(setup->mlx,setup->img_face[2]);
+	mlx_destroy_image(setup->mlx,setup->img_back[0]);
+	mlx_destroy_image(setup->mlx,setup->img_back[1]);
+	mlx_destroy_image(setup->mlx,setup->img_back[2]);
+	
+}
+
 int main(int ac, char **av)
 {
 	t_setup setup;
 
+	int ret;
 	if (ac == 1)
 	{
-		printf("no maps, choose map in arg");
+		ret = write(2,"no maps, choose map in arg", 26);
+		(void)ret;
 		return (-1);
 	}
 	else
 	{
+		init_var(&setup);
 		starting(&setup);
 		count_lines(av[1], &setup);
 		copy_data_from_maps_to_tab(av[1], &setup);

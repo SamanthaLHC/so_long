@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 20:54:06 by sam               #+#    #+#             */
-/*   Updated: 2022/03/25 11:54:27 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 13:30:13 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,43 +47,22 @@ void put_img_in_win(t_setup *setup)
     while (setup->save_in_tab[i])
     {
         if (setup->save_in_tab[i] == '1')
-        {
             mlx_put_image_to_window(setup->mlx, setup->win, setup->img_wall, 
                ITOX(i, setup->line_size) * 48, ITOY(i, setup->line_size) * 48);
-            printf("wall = %c\n", setup->save_in_tab[i]);
-        }
         else if (setup->save_in_tab[i] == '0')
-        {
             mlx_put_image_to_window(setup->mlx, setup->win, setup->img_ground, 
                 ITOX(i, setup->line_size) * 48, ITOY(i, setup->line_size) * 48);
-            printf("ground = %c\n", setup->save_in_tab[i]);
-        }
         else if (setup->save_in_tab[i] == 'P')
-        {
             anim_char(i, setup);
-            printf("perso = %c\n", setup->save_in_tab[i]);
-        }
         else if (setup->save_in_tab[i] == 'C')
-        {
             mlx_put_image_to_window(setup->mlx, setup->win, setup->img_coll, 
                 ITOX(i, setup->line_size) * 48, ITOY(i, setup->line_size) * 48);
-            printf("coll = %c\n", setup->save_in_tab[i]);
- 
-        }
         else if (setup->save_in_tab[i] == 'E')
-        {
             mlx_put_image_to_window(setup->mlx, setup->win, setup->img_exit, 
                 ITOX(i, setup->line_size) * 48, ITOY(i, setup->line_size) * 48);
-            printf("exit = %c\n", setup->save_in_tab[i]);
-                
-        }
         else if (setup->save_in_tab[i] == 'F')
-        {
             mlx_put_image_to_window(setup->mlx, setup->win, setup->img_cake, 
                 ITOX(i, setup->line_size) * 48, ITOY(i, setup->line_size) * 48);
-            printf("foe = %c\n", setup->save_in_tab[i]);
-                
-        }
         i++;
     }
 }

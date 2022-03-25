@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:31:33 by sam               #+#    #+#             */
-/*   Updated: 2022/03/25 12:34:57 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/25 14:38:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void handle_win(t_setup *setup)
 {    
     get_size_win(setup);
 	mlx_hook(setup->win, 17, 0, &mouse_close, setup);
-	put_img_in_win(setup);
 	mlx_hook(setup->win, 3, (1L<<1), &move_char, setup);
 	put_img_in_win(setup);
 	mlx_hook(setup->win, 2, (1L<<0), &key_close, setup);	
-	mlx_loop(setup->mlx);	
+	mlx_loop(setup->mlx);
+	destroy_ereything(setup);
 	mlx_destroy_window(setup->mlx, setup->win);
 	mlx_destroy_display(setup->mlx);
 }
