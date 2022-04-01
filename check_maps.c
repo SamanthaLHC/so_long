@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 22:59:11 by sam               #+#    #+#             */
-/*   Updated: 2022/04/01 16:45:14 by sam              ###   ########.fr       */
+/*   Updated: 2022/04/01 17:35:27 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@ int	check_ber(char *file, t_setup *setup)
 {
 	int	i;
 
-	i = ft_strchr(file, '.') + 1;
-	if (ft_strcmp(&file[i], "ber") == 0)
+	i = ft_strlen(file);
+	while (i > 0)
+	{
+		if (file[i] == '.')
+			break ;
+		i--;
+	}
+	if (ft_strcmp(&file[i], ".ber") == 0)
 		return (0);
 	ft_putstr("error\nPlease provide proper .ber file as argument\n", 2);
 	mlx_destroy_display(setup->mlx);
