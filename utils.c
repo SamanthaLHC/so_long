@@ -6,15 +6,15 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:29:33 by sam               #+#    #+#             */
-/*   Updated: 2022/03/31 22:40:30 by sam              ###   ########.fr       */
+/*   Updated: 2022/04/01 14:36:13 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void total_collect(t_setup *setup)
+void	total_collect(t_setup *setup)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	setup->total_coll = 0;
@@ -33,9 +33,10 @@ int	ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-char *ft_putstr(char *s, int fd)
+char	*ft_putstr(char *s, int fd)
 {
-	int ret;
+	int	ret;
+
 	ret = write(fd, s, ft_strlen(s));
 	(void)ret;
 	return (0);
@@ -58,12 +59,12 @@ int	ft_putnbr(int n)
 	return (0);
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while((s1[i] || s2[i]) && (s1[i] == s2[i]))
+	while ((s1[i] || s2[i]) && (s1[i] == s2[i]))
 		i++;
-	return(s1[i] - s2[i]);
+	return (s1[i] - s2[i]);
 }
