@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/03/25 14:24:55 by sam              ###   ########.fr       */
+/*   Updated: 2022/04/01 02:04:39 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int starting(t_setup *setup)
 	return (0);
 }
 
-void destroy_ereything(t_setup *setup)
+void destroy_everything(t_setup *setup)
 {
 	mlx_destroy_image(setup->mlx,setup->img_wall);
 	mlx_destroy_image(setup->mlx,setup->img_ground);
@@ -68,7 +68,8 @@ void destroy_ereything(t_setup *setup)
 	mlx_destroy_image(setup->mlx,setup->img_back[0]);
 	mlx_destroy_image(setup->mlx,setup->img_back[1]);
 	mlx_destroy_image(setup->mlx,setup->img_back[2]);
-	
+	mlx_destroy_window(setup->mlx, setup->win);
+	mlx_destroy_display(setup->mlx);
 }
 
 int main(int ac, char **av)
@@ -76,9 +77,9 @@ int main(int ac, char **av)
 	t_setup setup;
 
 	int ret;
-	if (ac == 1)
+	if (ac != 2)
 	{
-		ret = write(2,"no maps, choose map in arg", 26);
+		ret = write(2,"choose one map in arg", 21);
 		(void)ret;
 		return (-1);
 	}
@@ -86,9 +87,14 @@ int main(int ac, char **av)
 	{
 		init_var(&setup);
 		starting(&setup);
-		count_lines(av[1], &setup);
+		if (count_lines(av[1], &setup) == -1)
+			return(-1);
+		if (check_ber(av[1], &setup) == -1)
+			return(-1);
 		copy_data_from_maps_to_tab(av[1], &setup);
 		total_collect(&setup);
+		if (ft_error(av[1], &setup) == -1)
+			return(-1);
 		handle_win(&setup);
 		free(setup.save_in_tab);
 		free(setup.mlx);

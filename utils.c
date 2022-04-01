@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:29:33 by sam               #+#    #+#             */
-/*   Updated: 2022/03/25 13:48:27 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/31 22:40:30 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void total_collect(t_setup *setup)
 {
-    int i;
+	int i;
 
-    i = 0;
-    setup->total_coll = 0;
-    while (setup->save_in_tab[i])
-    {
-        if (setup->save_in_tab[i] == 'C')
-        {
-            setup->total_coll++;
-        }
-        i++;
-    }
+	i = 0;
+	setup->total_coll = 0;
+	while (setup->save_in_tab[i])
+	{
+		if (setup->save_in_tab[i] == 'C')
+		{
+			setup->total_coll++;
+		}
+		i++;
+	}
 }
 
 int	ft_putchar(char c)
@@ -33,12 +33,12 @@ int	ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-char *ft_putstr(char *s)
+char *ft_putstr(char *s, int fd)
 {
-    int ret;
-	ret = write(1, s, ft_strlen(s));
-    (void)ret;
-    return (0);
+	int ret;
+	ret = write(fd, s, ft_strlen(s));
+	(void)ret;
+	return (0);
 }
 
 int	ft_putnbr(int n)
@@ -56,4 +56,14 @@ int	ft_putnbr(int n)
 		ft_putnbr(num / 10);
 	ft_putchar(num % 10 + '0');
 	return (0);
+}
+
+int ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while((s1[i] || s2[i]) && (s1[i] == s2[i]))
+		i++;
+	return(s1[i] - s2[i]);
 }

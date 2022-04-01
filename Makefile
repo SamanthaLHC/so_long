@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 14:13:22 by sle-huec          #+#    #+#              #
-#    Updated: 2022/03/25 13:40:41 by sam              ###   ########.fr        #
+#    Updated: 2022/03/31 23:51:21 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRCS = so_long.c \
 		move_my_char.c \
 		utils.c \
 		anim_my_char.c \
-		ft_printf.c
+		ft_printf.c \
+		check_maps.c \
+		check_maps_2.c
 		
 OBJ = $(SRCS:%.c=%.o)
 
@@ -33,7 +35,7 @@ $(NAME): $(OBJ) $(MLX)
 	$(CC) $(OBJ) -g3 -Lmlx -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c
-	$(CC) -g3 -DBUFFER_SIZE=1 -Wall -Wextra -Werror -I/usr/include -Imlx -O3 -c $< -o $@
+	$(CC) -g3 -DBUFFER_SIZE=1 -Wall -Wextra -Werror -I/usr/include -Imlx -O0 -c $< -o $@
 
 $(MLX):
 	make -C ./mlx 

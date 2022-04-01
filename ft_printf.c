@@ -6,13 +6,11 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 13:21:44 by sam               #+#    #+#             */
-/*   Updated: 2022/03/25 13:47:27 by sam              ###   ########.fr       */
+/*   Updated: 2022/03/31 22:41:11 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
 
 int	ft_put_smth(va_list arg, const char *format)
 {
@@ -23,7 +21,7 @@ int	ft_put_smth(va_list arg, const char *format)
 		if (format[i] == 'c')
 			ft_putchar(va_arg(arg, int));
 		else if (format[i] == 's')
-			ft_putstr(va_arg(arg, char *));
+			ft_putstr(va_arg(arg, char *), 1);
 		else if ((format[i] == 'd') || (format[i] == 'i'))
 			ft_putnbr(va_arg(arg, int));
 		else if (format[i] == '%')
