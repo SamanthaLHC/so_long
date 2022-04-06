@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maps.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 22:21:14 by sam               #+#    #+#             */
-/*   Updated: 2022/04/01 16:43:59 by sam              ###   ########.fr       */
+/*   Created: 2022/03/17 22:21:14 by sle-huec          #+#    #+#             */
+/*   Updated: 2022/04/06 11:09:30 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	count_lines(char *path, t_setup *setup)
 	while (line != NULL)
 	{
 		setup->nbr_lines += 1;
-
 		if (setup->line_size != (ft_strlen(line)
 				- !!(line[ft_strlen(line) - 1] == '\n')))
 			ret = -1;
