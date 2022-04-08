@@ -6,7 +6,7 @@
 #    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/17 14:13:22 by sle-huec          #+#    #+#              #
-#    Updated: 2022/04/06 11:16:00 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/04/08 17:15:24 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ fclean: clean
 
 all: $(NAME) 
 	
-re: fclean all
+re: fclean
+	make all
 	
 .PHONY: clean fclean all re 
