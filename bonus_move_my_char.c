@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:16:25 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/04/10 14:35:25 by sam              ###   ########.fr       */
+/*   Updated: 2022/04/10 15:11:24 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,27 +127,19 @@ void	move_right(int *m, t_setup *setup)
 int	move_char(int keycode, t_setup *setup)
 {
 	int	m;
+	int	m2;
 
 	m = ft_strchr(setup->save_in_tab, 'P');
 	if (keycode == 119)
-	{
-		ft_printf("step's number = %d\n", ++setup->count_step);
 		move_up(&m, setup);
-	}
 	else if (keycode == 97)
-	{
-		ft_printf("step's number = %d\n", ++setup->count_step);
 		move_left(&m, setup);
-	}
 	else if (keycode == 115)
-	{
-		ft_printf("step's number = %d\n", ++setup->count_step);
 		move_down(&m, setup);
-	}
 	else if (keycode == 100)
-	{
-		ft_printf("step's number = %d\n", ++setup->count_step);
 		move_right(&m, setup);
-	}
+	m2 = ft_strchr(setup->save_in_tab, 'P');
+	if (m2 != m)
+		ft_printf("step's number = %d\n", ++setup->count_step);
 	return (0);
 }
