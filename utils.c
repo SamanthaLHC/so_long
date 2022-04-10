@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:29:33 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/04/06 11:09:43 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/04/09 20:17:46 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	total_collect(t_setup *setup)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	setup->total_coll = 0;
 	while (setup->save_in_tab[i])
 	{
 		if (setup->save_in_tab[i] == 'C')

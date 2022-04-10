@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:29:51 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/04/01 14:56:51 by sam              ###   ########.fr       */
+/*   Updated: 2022/04/10 14:23:45 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,16 @@ int		ft_put_smth(va_list arg, const char *format);
 int		ft_printf(const char *format, ...);
 void	destroy_everything(t_setup *setup);
 int		ft_strcmp(char *s1, char *s2);
-int		ft_error(char *file, t_setup *setup);
-int		check_wall(t_setup *setup);
+int		check_error_after_copy(char *file, t_setup *setup);
+int		check_error_before_copy(char*file, t_setup *setup);
+int		check_borders(size_t *i, size_t *j, t_setup *setup);
+int		check_walls(t_setup *setup);
 int		check_ber(char *file, t_setup *setup);
 int		check_too_big(t_setup *setup);
 int		check_chars(char *s, t_setup *setup);
-int		check_rectangle(char *file, t_setup *setup);
+int		check_rectangle(t_setup *setup);
 int		check_odd_char(t_setup *setup);
+int		check_empty_map(t_setup *setup);
 int		itox(int i, size_t line_size);
 int		itoy(int i, size_t line_size);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 22:59:11 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/04/06 11:09:11 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/04/10 14:20:53 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,10 @@ int	check_ber(char *file, t_setup *setup)
 	}
 	if (ft_strcmp(&file[i], ".ber") == 0)
 		return (0);
-	ft_putstr("error\nPlease provide proper .ber file as argument\n", 2);
+	ft_putstr("Error\nPlease provide proper .ber file as argument\n", 2);
 	mlx_destroy_display(setup->mlx);
 	free(setup->mlx);
 	return (-1);
-}
-
-int	check_too_big(t_setup *setup)
-{
-	if (setup->line_size > 40)
-	{
-		ft_putstr("error\nInvalid map\n", 2);
-		mlx_destroy_display(setup->mlx);
-		free(setup->save_in_tab);
-		free(setup->mlx);
-		return (-1);
-	}
-	return (0);
 }
 
 int	check_chars(char *s, t_setup *setup)
@@ -60,9 +47,9 @@ int	check_chars(char *s, t_setup *setup)
 			count_e++;
 		s++;
 	}
-	if (setup->total_coll < 1 || count_p != 1 || count_e != 1)
+	if (setup->total_coll < 1 || count_p != 1)
 	{
-		ft_putstr("error\nInvalid map, duplicate char E||P, "
+		ft_putstr("Error\nInvalid map, duplicate char P, "
 			"or missing element\n", 2);
 		mlx_destroy_display(setup->mlx);
 		free(setup->mlx);
@@ -72,17 +59,13 @@ int	check_chars(char *s, t_setup *setup)
 	return (0);
 }
 
-int	check_rectangle(char *file, t_setup *setup)
+int	check_rectangle(t_setup *setup)
 {
-	if (count_lines(file, setup) == -1)
-	{
-		ft_putstr("error\nInvalid map, not rectangle\n", 2);
-		mlx_destroy_display(setup->mlx);
-		free(setup->mlx);
-		free(setup->save_in_tab);
-		return (-1);
-	}
-	return (0);
+	ft_putstr("Error\nInvalid map, not all lines have the same size\n", 2);
+	mlx_destroy_display(setup->mlx);
+	free(setup->mlx);
+	free(setup->save_in_tab);
+	return (-1);
 }
 
 int	check_odd_char(t_setup *setup)
@@ -96,13 +79,26 @@ int	check_odd_char(t_setup *setup)
 			&&setup->save_in_tab[i] != 'P' && setup->save_in_tab[i] != 'E'
 			&& setup->save_in_tab[i] != 'C' && setup->save_in_tab[i] != 'F')
 		{
-			ft_putstr("error\nInvalid char in map\n", 2);
+			ft_putstr("Error\nInvalid char in map\n", 2);
 			mlx_destroy_display(setup->mlx);
 			free(setup->save_in_tab);
 			free(setup->mlx);
 			return (-1);
 		}
 		i++;
+	}
+	return (0);
+}
+
+int	check_too_big(t_setup *setup)
+{
+	if (setup->line_size > 40)
+	{
+		ft_putstr("Error\nInvalid size\n", 2);
+		mlx_destroy_display(setup->mlx);
+		free(setup->save_in_tab);
+		free(setup->mlx);
+		return (-1);
 	}
 	return (0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 16:09:30 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/04/06 11:09:38 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/04/10 14:23:01 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_var(t_setup *setup)
+void	init_ptr_var(t_setup *setup)
 {
 	setup->img_wall = NULL;
 	setup->img_ground = NULL;
@@ -35,9 +35,19 @@ void	init_var(t_setup *setup)
 	setup->img_face[2] = NULL;
 	setup->img_face[3] = NULL;
 	setup->img_cake = NULL;
+	setup->save_in_tab = NULL;
+}
+
+void	init_counters_var(t_setup *setup)
+{
 	setup->count_coll = 0;
 	setup->count_step = 0;
 	setup->idx_anim = 0;
+	setup->h_win = 0;
+	setup->w_win = 0;
+	setup->nbr_lines = 0;
+	setup->line_size = 0;
+	setup->total_coll = 0;
 	setup->direction = 115;
 }
 
@@ -83,14 +93,14 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		init_var(&setup);
+		init_ptr_var(&setup);
+		init_counters_var(&setup);
 		starting(&setup);
-		count_lines(av[1], &setup);
-		if (check_ber(av[1], &setup) == -1)
+		if (check_error_before_copy(av[1], &setup) == -1)
 			return (-1);
 		copy_data_from_maps_to_tab(av[1], &setup);
 		total_collect(&setup);
-		if (ft_error(av[1], &setup) == -1)
+		if (check_error_after_copy(av[1], &setup) == -1)
 			return (-1);
 		handle_win(&setup);
 		free(setup.save_in_tab);

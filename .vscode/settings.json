@@ -1,0 +1,7 @@
+{
+    "name": "Launch",
+    "type": "lldb",
+    "request": "launch",
+    "program": "$/home/sam/so_long/./so_long",
+    "args": ["-arg1", "-arg2"],
+}
