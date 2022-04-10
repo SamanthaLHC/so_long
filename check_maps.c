@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 22:59:11 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/04/10 14:41:02 by sam              ###   ########.fr       */
+/*   Updated: 2022/04/10 21:52:05 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_chars(char *s, t_setup *setup)
 			count_e++;
 		s++;
 	}
-	if (setup->total_coll < 1 || count_p != 1)
+	if (setup->total_coll < 1 || count_p != 1 || count_e < 1)
 	{
 		ft_putstr("Error\nInvalid map, duplicate char P, "
 			"or missing element\n", 2);
